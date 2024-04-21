@@ -151,8 +151,8 @@
             <a class="nav-item nav-link active sedan-regular-italic" href="#">Home <span class="sr-only">(current)</span></a>
             <a class="nav-item nav-link active sedan-regular-italic" href="./Registration_ET.html">Registration</a>
             <a class="nav-item nav-link active sedan-regular-italic" href="./eventhistory.html">Past reports</a>
-            <a class="nav-item nav-link active sedan-regular-italic" href="#">Sign up</a>
-            <a class="nav-item nav-link active sedan-regular-italic" href="#">Log in</a>
+            <button class="btn btn-outline nav-link active sedan-regular-italic mr-2" data-toggle="modal" data-target="#signupModal">Sign Up</button>
+            <button class="btn btn-outline nav-link active sedan-regular-italic" data-toggle="modal" data-target="#loginModal">Login</button>
           </div>
           <div class="navbar-nav ms-auto">
             <div class="nav-item d-flex align-items-center">
@@ -210,7 +210,73 @@
             </a>
         </div>
     </div>
-
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="loginForm" class="needs-validation" novalidate>
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" class="form-control" id="username" name="username" required>
+                            <div class="invalid-feedback">
+                                Please enter your username.
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" id="password" name="password" required>
+                            <div class="invalid-feedback">
+                                Please enter your password.
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-info">Login</button>
+                    </form>
+                    <div id="loginFeedback" class="mt-2"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Sign Up Modal -->
+    <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="signupModalLabel">Sign Up</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="signupForm" class="needs-validation" novalidate>
+                        <div class="form-group">
+                            <label for="newUsername">Username</label>
+                            <input type="text" class="form-control" id="newUsername" name="newUsername" required>
+                            <div class="invalid-feedback">
+                                Please enter a username.
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="newPassword">Password</label>
+                            <input type="password" class="form-control" id="newPassword" name="newPassword" required>
+                            <div class="invalid-feedback">
+                                Please enter a password.
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-info">Sign Up</button>
+                    </form>
+                    <div id="signupFeedback" class="mt-2"></div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script
