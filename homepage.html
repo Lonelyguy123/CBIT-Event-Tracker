@@ -85,6 +85,45 @@
   font-style: normal;
   font-size:20px;
 }
+.merriweather-light {
+  font-family: "Merriweather", serif;
+  font-weight: 300;
+  font-style: normal;
+}
+.bg-image {
+        background: url('bg.avif') no-repeat center center fixed; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+.gradient-text {
+        background: -webkit-linear-gradient(#ee7752, #e73c7e, #23a6d5, #23d5ab);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        transition: all 2s;
+    }
+    .fade-in {
+        opacity: 0;
+        animation: fadeIn ease 3s;
+        -webkit-animation: fadeIn ease 3s;
+        -moz-animation: fadeIn ease 3s;
+        animation-fill-mode: forwards;
+        -webkit-animation-fill-mode: forwards;
+        -moz-animation-fill-mode: forwards;
+    }
+    @keyframes fadeIn {
+        0% {opacity:0;}
+        100% {opacity:1;}
+    }
+    @-moz-keyframes fadeIn {
+        0% {opacity:0;}
+        100% {opacity:1;}
+    }
+    @-webkit-keyframes fadeIn {
+        0% {opacity:0;}
+        100% {opacity:1;}
+    }
 
         /* Optional: Add more custom styles as needed */
 
@@ -96,6 +135,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Abel&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Abel&family=Anton&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Abel&family=Anton&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
 
 
 </head>
@@ -122,6 +162,21 @@
           </div>
         </div>
       </nav>
+      <div class="container-fluid py-5 bg-light" style="background: url('bg.avif') no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;">
+        <div class="row">
+            <div class="col-3">
+                <img src="cbit.jpg" alt="Your Image" class="img-fluid fade-in" style="height: 40vh; object-fit: cover;">
+            </div>
+            <div class="col-9 d-flex align-items-center">
+                <div class="p-3 fade-in" style="background-color: rgba(255, 255, 255, 0.6);">
+                    <p class="merriweather-light text-justify" style="font-size: 27px; line-height: 1.7; color: #333;">
+                        Welcome to the vibrant world of CSE events at CBIT! Explore our dynamic lineup of workshops, bootcamps, hackathons, and more, designed to ignite your passion for technology and innovation. Stay tuned for upcoming events that offer unparalleled learning experiences and networking opportunities for aspiring engineers and computer scientists.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
       <div class="container-fluid" id="scroller">
         <div id="carouselContent" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner" role="listbox">
