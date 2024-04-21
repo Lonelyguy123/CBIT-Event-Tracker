@@ -19,7 +19,6 @@
         background: rgba(0, 0, 0, 0.5);
         color: white;
     }
-
   .carousel-item {
     height: 50vh; /* Full viewport height */
         background-size: cover;
@@ -48,7 +47,7 @@
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
     background-color: black; /* Change control background color */
-    color: black !important; /* Change icon color */
+    color: black !important; /* Change icon color */
 }
         /* Custom styles */
         .navbar-brand {
@@ -57,14 +56,12 @@
             font-style: normal;
             color: white; /* Navbar brand text color */
         }
-
         .navbar-nav .nav-link {
             font-family: "Sedan", serif;
             font-weight: 400;
             font-style: normal;
             color: white; /* Navbar link text color */
         }
-
         .carousel-item img {
             max-height: 300px; /* Reduce the image size in the carousel */
         }
@@ -97,11 +94,11 @@
         -o-background-size: cover;
         background-size: cover;
     }
-.gradient-text {
-        background: -webkit-linear-gradient(#ee7752, #e73c7e, #23a6d5, #23d5ab);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        transition: all 2s;
+    .gradient-text {
+    background: -webkit-linear-gradient(#ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: all 2s;
     }
     .fade-in {
         opacity: 0;
@@ -124,9 +121,7 @@
         0% {opacity:0;}
         100% {opacity:1;}
     }
-
         /* Optional: Add more custom styles as needed */
-
     </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -136,32 +131,31 @@
     <link href="https://fonts.googleapis.com/css2?family=Abel&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Abel&family=Anton&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Abel&family=Anton&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
-
-
 </head>
 <body>
     
-    <nav class="navbar navbar-expand-lg navbar-light bg-danger">
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: red;">
         <a class="navbar-brand jersey-15-charted-regular" href="#">CBIT Event-Tracker</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
-            <a class="nav-item nav-link active sedan-regular-italic" href="#">Home <span class="sr-only">(current)</span></a>
+          <div class="navbar-nav mr-auto">
+            <a class="nav-item nav-link active sedan-regular-italic" href="#">Home</a>
             <a class="nav-item nav-link active sedan-regular-italic" href="./Registration_ET.html">Registration</a>
             <a class="nav-item nav-link active sedan-regular-italic" href="./eventhistory.html">Past reports</a>
-            <a class="nav-item nav-link active sedan-regular-italic" href="#">Sign up</a>
-            <a class="nav-item nav-link active sedan-regular-italic" href="#">Log in</a>
+            <a class="nav-item nav-link active sedan-regular-italic" href="./login.html">Login</a>
+            <a class="nav-item nav-link active sedan-regular-italic" href="./signup.html">Sign Up</a>
           </div>
           <div class="navbar-nav ms-auto">
             <div class="nav-item d-flex align-items-center">
-              <img src="doomguy.jpg" class="rounded-circle" alt="Cbit" width="50px" height="50px">
-              <p class="fw-bold mb-0 ml-2 anton-regular"> Hi, Doomguy</p>
+              <img src="dev.jpg" class="rounded-circle" alt="Cbit" width="50px" height="50px">
+              <p class="fw-bold mb-0 ml-2 anton-regular">Hi, Doomguy</p>
             </div>
           </div>
         </div>
       </nav>
+      
       <div class="container-fluid py-5 bg-light" style="background: url('bg.avif') no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;">
         <div class="row">
             <div class="col-3">
@@ -228,7 +222,6 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
-
     <!-- mdbootstrap -->
     <script
       type="text/javascript"
@@ -245,6 +238,6 @@
     <script
       type="text/javascript"
       src="node_modules/mdbootstrap/js/mdb.min.js"
-    ></script>
+    ></script>
 </body>
 </html>
