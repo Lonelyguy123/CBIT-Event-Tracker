@@ -1,0 +1,1 @@
+This project is an event tracker, specificially for the CSE department in our college cbit. It aims to provide an interface where we can append details of events that were finished, and view them later based on different kinds of filters.
