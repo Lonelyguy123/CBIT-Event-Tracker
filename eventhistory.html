@@ -1,162 +1,261 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Past Event Reports</title>
   <!-- Bootstrap CSS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sedan:ital@0;1&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sedan:ital@0;1&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Jersey+15+Charted&family=Sedan:ital@0;1&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Abel&family=Anton&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
 
-
-<style>
-  .anton-regular {
-  font-family: "Anton", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  font-size:20px;
-}
-  .s{
-    padding-left:100px;
-  }
-    .b{
-        /*background-color: rgb(107, 91, 149);*/
-        background-color:rgb(107, 88, 118)
+  <style>
+    .poppins-bold {
+      font-family: "Poppins", sans-serif;
+      font-weight: 700;
+      font-style: normal;
     }
+
+    /* Add a black background color to the top navigation */
+    .topnav {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(to left, rgb(28, 27, 27) 0%, black 50%, rgb(28, 27, 27) 100%);
+      background-size: 200% 100%;
+      background-position: left center;
+      transition: background 1s linear;
+    }
+
+    .topnav:hover {
+      background-position: 100% center;
+    }
+
+    /* Style the links inside the navigation bar */
+    .topnav a {
+      float: left;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+    }
+
+    /* Change the color of links on hover */
+    .topnav a:hover {
+      /* background-color: black; */
+      color: white;
+    }
+
+    /* Add a color to the active/current link */
+    .topnav a.active {
+      /* background-color: black;     */
+      color: white;
+    }
+
+    /* Centered section inside the top navigation */
+    .topnav-centered a {
+      float: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    /* Right-aligned section inside the top navigation */
+    .topnav-right {
+      float: right;
+    }
+
+    /* Responsive navigation menu - display links on top of each other instead of next to each other (for mobile devices) */
+    @media screen and (max-width: 600px) {
+
+      .topnav a,
+      .topnav-right {
+        float: none;
+        display: block;
+      }
+
+      .topnav-centered a {
+        position: relative;
+        top: 0;
+        left: 0;
+        transform: none;
+      }
+    }
+
+    .anton-regular {
+      font-family: "Anton", sans-serif;
+      font-weight: 400;
+      font-style: normal;
+      font-size: 20px;
+    }
+
+    .s {
+      padding-left: 100px;
+    }
+
+    .b {
+      /*background-color: rgb(107, 91, 149);*/
+      background-color: rgb(107, 88, 118)
+    }
+
     .barlow-condensed-medium-italic {
-  font-family: "Barlow Condensed", sans-serif;
-  font-weight: 500;
-  font-style: italic;
-  color: rgb(255, 111, 97);
-}
-.jersey-15-charted-regular {
-  font-family: "Jersey 15 Charted", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
+      font-family: "Barlow Condensed", sans-serif;
+      font-weight: 500;
+      font-style: italic;
+      color: rgb(255, 111, 97);
+    }
+
+    .jersey-15-charted-regular {
+      font-family: "Jersey 15 Charted", sans-serif;
+      font-weight: 400;
+      font-style: normal;
+    }
 
     .sedan-regular {
-  font-family: "Sedan", serif;
-  font-weight: 400;
-  font-style: normal;
-}
+      font-family: "Sedan", serif;
+      font-weight: 400;
+      font-style: normal;
+    }
 
-.sedan-regular-italic {
-  font-family: "Sedan", serif;
-  font-weight: 400;
-  font-style: italic;
-  color: red;
-}
+    .sedan-regular-italic {
+      font-family: "Sedan", serif;
+      font-weight: 400;
+      font-style: italic;
+      color: red;
+    }
 
-.card-body { /* Remove border */
-    background-color: #000; /* Pure black background */
-    padding: 20px;
-}
-.navbar{
-    height:80px;
-}
+      /* .card-body {
+        /* Remove border */
+        background-color: #000;
+        /* Pure black background */
+        padding: 20px;
+      } */
 
-</style>
+    .navbar {
+      height: 80px;
+    }
+
+    .card {
+      border: none;
+      /* Remove border */
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      background-color: black;
+      /* Pure black background */
+      padding: 20px;
+    }
+
+    /* Adjust the text color inside the card */
+    .card-body,
+    .card-title,
+    .form-control,
+    label {
+      color: #ffffff;
+      font-size: 14px;
+      /* White text color */
+    }
+  </style>
 
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body class="b bg-dark">
-  <nav class="navbar navbar-expand-lg navbar-light bg-danger">
-    <a class="navbar-brand jersey-15-charted-regular" href="#">CBIT Event-Tracker</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav mr-auto">
-        <a class="nav-item nav-link active sedan-regular-italic" href="homepage.html">Home</a>
-        <a class="nav-item nav-link active sedan-regular-italic" href="Registration_ET.html">Registration</a>
-        <a class="nav-item nav-link active sedan-regular-italic" href="eventhistory.html">Past reports</a>
-      </div>
-      <div class="navbar-nav ml-auto">
-        <div class="nav-item d-flex align-items-center">
-          <img src="doomguy.jpg" class="rounded-circle" alt="Cbit" width="50px" height="50px">
-          <p class="fw-bold anton-regular mb-0 ml-2"> Hi, Doomguy</p>
-        </div>
-      </div>
+
+<body style="background-color: rgb(28, 27, 27);">
+  <div class="topnav">
+
+    <!-- Centered link -->
+    <div class="topnav-centered">
+      <a href="./homepage.html" class="active poppins-bold" style="font-size:25px; text-decoration: none;">Event
+        Tracker</a>
     </div>
-  </nav>
-  <div class="container mt-5">
-    <div class="card">
-      <div class="card-body">
-        <h1 class="barlow-condensed-medium-italic text-center mb-4">Past Event Reports</h1>
-        <div class="row mb-4">
-          <div class="col-md-6">
-            <div class="input-group">
-              <div class="input-group-prepend">
-                <label class="input-group-text" for="eventType">Event Type</label>
-              </div>
-              <select class="custom-select" id="eventType">
-                <option selected>All</option>
-                <option value="workshop">Workshop</option>
-                <option value="conference">Conference</option>
-                <option value="seminar">Seminar</option>
-                <option value="Bootcamp">Bootcamp</option>
-              </select>
+
+    <!-- Left-aligned links (default) -->
+    <a href="./Registration_ET.html">Registration</a>
+    <a href="./eventhistory.html">Past Events</a>
+
+    <!-- Right-aligned links -->
+    <div class="topnav-right">
+      <a href="./login.html">Log In</a>
+      <a href="./signup.html">Sign Up</a>
+    </div>
+
+  </div>
+  <div class="container mt-5" >
+    <div class="card" style="background-color: black;">
+      <h1 class=" text-center mb-4" style="color: white;">Past Event Reports</h1>
+      <div class="row mb-4">
+        <div class="col-md-6">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="eventType">Event Type</label>
             </div>
-          </div>
-          <div class="col-md-6">
-            <div class="input-group">
-              <div class="input-group-prepend">
-                <label class="input-group-text" for="eventYear">Event Year</label>
-              </div>
-              <select class="custom-select" id="eventYear">
-                <option selected>All</option>
-                <option value="2023">2023</option>
-                <option value="2022">2022</option>
-                <option value="2021">2021</option>
-              </select>
-            </div>
+            <select class="custom-select" id="eventType">
+              <option selected>All</option>
+              <option value="workshop">Workshop</option>
+              <option value="conference">Conference</option>
+              <option value="seminar">Seminar</option>
+              <option value="Bootcamp">Bootcamp</option>
+            </select>
           </div>
         </div>
-        <div class="table-responsive">
-          <table class="table table-striped table-hover">
-            <caption>These are the filtered list of events</caption>
-            <thead class="thead-dark">
-              <tr>
-                <th>#</th>
-                <th>Event Name</th>
-                <th>Event Type</th>
-                <th>Event Date</th>
-                <th>View Form</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="table-primary">
-                <td>1</td>
-                <td>Event 1</td>
-                <td>Workshop</td>
-                <td>2023-01-15</td>
-                <td><button type="button" class="btn btn-success">View</button></td>
-              </tr>
-              <tr class="table-danger">
-                <td>2</td>
-                <td>Event 2</td>
-                <td>Conference</td>
-                <td>2022-08-20</td>
-                <td><button type="button" class="btn btn-success">View</button></td>
-              </tr>
-              <!-- Add more rows as needed -->
-            </tbody>
-          </table>
+        <div class="col-md-6">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="eventYear">Event Year</label>
+            </div>
+            <select class="custom-select" id="eventYear">
+              <option selected>All</option>
+              <option value="2023">2023</option>
+              <option value="2022">2022</option>
+              <option value="2021">2021</option>
+            </select>
+          </div>
         </div>
       </div>
+      <div class="table-responsive">
+        <table class="table table-striped table-hover">
+          <caption>These are the filtered list of events</caption>
+          <thead class="thead-dark">
+            <tr>
+              <th>#</th>
+              <th>Event Name</th>
+              <th>Event Type</th>
+              <th>Event Date</th>
+              <th>View Form</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="table-primary">
+              <td>1</td>
+              <td>Event 1</td>
+              <td>Workshop</td>
+              <td>2023-01-15</td>
+              <td><button type="button" class="btn btn-success">View</button></td>
+            </tr>
+            <tr class="table-danger">
+              <td>2</td>
+              <td>Event 2</td>
+              <td>Conference</td>
+              <td>2022-08-20</td>
+              <td><button type="button" class="btn btn-success">View</button></td>
+            </tr>
+            <!-- Add more rows as needed -->
+          </tbody>
+        </table>
+      </div>
+
     </div>
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
-        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-        crossorigin="anonymous"></script>
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
 
   <!-- Bootstrap JS (optional, for certain components) -->
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+
 </html>
