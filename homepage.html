@@ -20,27 +20,9 @@
         rel="stylesheet">
 
     <style>
-    .carousel-caption {
-            background: none; /* Remove the background */
-    }
+       
 
-.btn-dark { 
-    border: none; 
-    color: white; 
-    font-size: 18px; 
-    padding: 10px 20px; 
-    text-transform: uppercase;
-    transition: background-color 0.3s ease; 
-}
 
-.btn-dark:hover {
-    background-color: grey; /* Darker blue when hovered */
-}
-      .carousel-item {
-    height: 600px; /* Adjust this value as needed */
-    background-size: cover;
-    background-position: center;
-}
         /* Smaller cards */
         .card {
             max-width: 450px;
@@ -93,36 +75,39 @@
 
     <div id="carouselContent" class="carousel slide" data-ride="carousel" style="background-color: black;">
         <div class="carousel-inner" role="listbox">
-            <div class="carousel-item active text-center p-4 scrollcontent" 
-                style="background-image: url('event1.png'); background-size: contain; background-position: center; width:100%; background-repeat: no-repeat;">
+            <div class="carousel-item active text-center p-4" id="scrollcontent"
+                style="background-image: url('doomguy.jpg');">
                 <div class="carousel-caption">
-                    <a href="#" class="btn btn-dark text-light">Register Now</a>
+                    <h3 class="kanit-regular">Doom</h3>
+                    <p class="abel-regular">Rip and Tear</p>
                 </div>
             </div>
-            <div class="carousel-item text-center p-4 scrollcontent" 
-                style="background-image: url('event2.png'); background-size: contain; background-position: center; width:100%; background-repeat: no-repeat;">
+            <div class="carousel-item text-center p-4" id="scrollcontent" style="background-image: url('devops.png');">
                 <div class="carousel-caption">
-                    <a href="#" class="btn btn-dark text-light">Register Now</a>
+                    <h3 class="kanit-regular">DevOps</h3>
+                    <p class="abel-regular">Developer Operations</p>
                 </div>
             </div>
-            <div class="carousel-item text-center p-4 scrollcontent"
-                style="background-image: url('event3.png'); background-size: contain; background-position: center; width:100%; background-repeat: no-repeat;">
+            <div class="carousel-item text-center p-4" id="scrollcontent"
+                style="background-image: url('banner_img.jpg');">
                 <div class="carousel-caption">
-                    <a href="#" class="btn btn-dark text-light" style="margin-bottom:150px;">Register Now</a>
+                    <h3 class="kanit-regular">Home</h3>
+                    <p class="abel-regular">Home Sweet Home</p>
                 </div>
             </div>
         </div>
         <!-- Carousel controls -->
         <a class="carousel-control-prev" href="#carouselContent" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
+            <span class="carousel-control-prev-icon text-dark" aria-hidden="true" id="control1"></span>
+            <span class="sr-only"></span>
         </a>
         <a class="carousel-control-next" href="#carouselContent" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
+            <span class="carousel-control-next-icon" aria-hidden="true" id="control1"></span>
+            <span class="sr-only"> </span>
         </a>
     </div>
-    
+    </div>
+
     <hr style="margin-top: 50px; margin-bottom: 0px;margin-left: 175px;margin-right: 175px; background-color: white;border: solid white;">
 
     <div class="container-fluid py-5" style="background-color: black;">

@@ -69,54 +69,15 @@
             color: #ffffff;
             /* White text color */
         }
+
+        .error-message {
+            color: red;
+            font-size: 12px;
+        }
     </style>
 </head>
 
 <body>
-    <script>
-        // JavaScript for form validation
-        document.addEventListener('DOMContentLoaded', function () {
-            document.querySelector('form').addEventListener('submit', function (event) {
-                // Prevent the default form submission
-                event.preventDefault();
-                // Validate the form fields
-                if (validateForm()) {
-                    // If the form is valid, submit it
-                    this.submit();
-                    alert('Form has been submitted!');
-                }
-            });
-        });
-    
-        function validateForm() {
-            // Basic validation example
-            var eventType = document.getElementById('eventType').value;
-            var eventDate = document.getElementById('Event_Date').value;
-            var fromTime = document.getElementById('from_time').value;
-            var toTime = document.getElementById('to_time').value;
-            var venue = document.getElementById('Venue_for_Event').value;
-            var audienceCount = document.getElementById('audience_count').value;
-    
-            // Check if any field is empty
-            if (!eventType || !eventDate || !fromTime || !toTime || !venue || !audienceCount) {
-                alert('All fields are required!');
-                return false;
-            }
-    
-            // Validate event date
-            var currentDate = new Date();
-            var selectedDate = new Date(eventDate);
-            if (selectedDate < currentDate) {
-                alert('Please select a future date for the event.');
-                return false;
-            }
-    
-            // You can add more specific validations here if needed
-            
-            return true;
-        }
-    </script>
-    
     <div class="topnav">
 
         <!-- Centered link -->
@@ -135,13 +96,11 @@
         </div>
 
     </div>
-    <br>
-    <br>
-    <br>
+    
     <div class="container mt-5">
         <div class="card">
             <h1 class="mb-4" style="color: white;">Event Report Form</h1>
-            <form action="">
+            <form id="eventReportForm" action="">
                 <div class="row">
                     <div class="col-md-6">
                         <label for="eventType">Event Type:</label>
@@ -151,19 +110,24 @@
                             <option value="workshop">Workshop</option>
                             <option value="conference">Conference</option>
                             <option value="seminar">Seminar</option>
-                        </select><br>
+                        </select>
+                        <div id="eventTypeError" class="error-message"></div>
+                        <br>
                         <label for="Event_Date">Select Date of Event</label>
-                        <input type="date" class="form-control" name="Event_Date" id="Event_Date"><br>
-                        <div class="col-md-4" style="padding-left: 0;">
-                            <label for="audience_count">Audience Count</label>
-                            <input type="number" class="form-control" name="audience_count" id="audience_count">
-                        </div>
+                        <input type="date" class="form-control" name="Event_Date" id="Event_Date">
+                        <div id="eventDateError" class="error-message"></div>
+                        <br>
+                        <label for="audience_count">Audience Count</label>
+                        <input type="number" class="form-control" name="audience_count" id="audience_count">
+                        <div id="audienceCountError" class="error-message"></div>
                     </div>
                     <div class="col-md-6">
                         <label for="from_time">From</label>
                         <input type="time" class="form-control" name="from_time" id="from_time">
+                        <div id="fromTimeError" class="error-message"></div>
                         <label for="to_time">To</label>
                         <input type="time" class="form-control" name="to_time" id="to_time">
+                        <div id="toTimeError" class="error-message"></div>
                         <br>
                         <label for="Venue_for_Event">Select Venue</label>
                         <select name="Venue_for_Event" class="form-control" id="Venue_for_Event">
@@ -173,11 +137,9 @@
                             <option value="DSem">D Block Seminar Hall</option>
                             <option value="NSem">N Block Seminar Hall</option>
                         </select>
+                        <div id="venueError" class="error-message"></div>
                         <br><br>
                     </div>
-                </div>
-                <div class="row">
-
                 </div>
                 <br>
                 <div class="row">
@@ -197,6 +159,75 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
         crossorigin="anonymous"></script>
+
+    <script>
+        // JavaScript for form validation
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('eventReportForm').addEventListener('submit', function (event) {
+                // Prevent the default form submission
+                event.preventDefault();
+                // Validate the form fields
+                if (validateForm()) {
+                    // If the form is valid, submit it
+                    this.submit();
+                    alert('Form has been submitted!');
+                }
+            });
+        });
+
+        function validateForm() {
+            // Basic validation example
+            var eventType = document.getElementById('eventType').value;
+            var eventDate = document.getElementById('Event_Date').value;
+            var fromTime = document.getElementById('from_time').value;
+            var toTime = document.getElementById('to_time').value;
+            var venue = document.getElementById('Venue_for_Event').value;
+            var audienceCount = document.getElementById('audience_count').value;
+
+            var isValid = true;
+
+            // Reset error messages
+            document.querySelectorAll('.error-message').forEach(function (errorMessage) {
+                errorMessage.textContent = '';
+            });
+
+            // Check if any field is empty
+            if (!eventType) {
+                document.getElementById('eventTypeError').textContent = 'Event Type is required.';
+                isValid = false;
+            }
+            if (!eventDate) {
+                document.getElementById('eventDateError').textContent = 'Event Date is required.';
+                isValid = false;
+            }
+            if (!fromTime) {
+                document.getElementById('fromTimeError').textContent = 'Start Time is required.';
+                isValid = false;
+            }
+            if (!toTime) {
+                document.getElementById('toTimeError').textContent = 'End Time is required.';
+                isValid = false;
+            }
+            if (!venue) {
+                document.getElementById('venueError').textContent = 'Venue is required.';
+                isValid = false;
+            }
+            if (!audienceCount) {
+                document.getElementById('audienceCountError').textContent = 'Audience Count is required.';
+                isValid = false;
+            }
+
+            // Validate event date
+            var currentDate = new Date();
+            var selectedDate = new Date(eventDate);
+            if (selectedDate < currentDate) {
+                document.getElementById('eventDateError').textContent = 'Please select a future date for the event.';
+                isValid = false;
+            }
+
+            return isValid;
+        }
+    </script>
 </body>
 
 </html>
