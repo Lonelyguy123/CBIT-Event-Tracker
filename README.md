@@ -1,1 +1,1 @@
-This project is an event tracker, specificially for the CSE department at CBIT. It aims to provide an interface where we can append details of events that were finished, and view them later based on different kinds of filters.
+This project is an event tracker, specificially for the CSE department at CBIT. It aims to provide an interface where we can append details of events that were finished, and view them later based on different kinds of filters. The students can also view the future events and can register for them directly from the website.
