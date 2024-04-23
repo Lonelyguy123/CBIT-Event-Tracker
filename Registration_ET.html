@@ -20,6 +20,9 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
+
+    <link rel="stylesheet" href="./styles.css">
+
     <style>
         .poppins-bold {
             font-family: "Poppins", sans-serif;
@@ -67,73 +70,6 @@
             /* White text color */
         }
 
-
-        /* Add a black background color to the top navigation */
-        .topnav {
-            position: relative;
-            overflow: hidden;
-            background: linear-gradient(to left, rgb(28, 27, 27) 0%, black 50%, rgb(28, 27, 27) 100%);
-            background-size: 200% 100%;
-            background-position: left center;
-            transition: background 1s linear;
-        }
-
-        .topnav:hover {
-            background-position: 100% center;
-        }
-
-        /* Style the links inside the navigation bar */
-        .topnav a {
-            float: left;
-            color: #f2f2f2;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-            font-size: 17px;
-        }
-
-        /* Change the color of links on hover */
-        .topnav a:hover {
-            /* background-color: black; */
-            color: white;
-        }
-
-        /* Add a color to the active/current link */
-        .topnav a.active {
-            /* background-color: black;     */
-            color: white;
-        }
-
-        /* Centered section inside the top navigation */
-        .topnav-centered a {
-            float: none;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        /* Right-aligned section inside the top navigation */
-        .topnav-right {
-            float: right;
-        }
-
-        /* Responsive navigation menu - display links on top of each other instead of next to each other (for mobile devices) */
-        @media screen and (max-width: 600px) {
-
-            .topnav a,
-            .topnav-right {
-                float: none;
-                display: block;
-            }
-
-            .topnav-centered a {
-                position: relative;
-                top: 0;
-                left: 0;
-                transform: none;
-            }
-        }
     </style>
 </head>
 

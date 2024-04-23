@@ -13,141 +13,18 @@
     rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="./styles.css">
+
   <style>
-    .poppins-bold {
-      font-family: "Poppins", sans-serif;
-      font-weight: 700;
-      font-style: normal;
-    }
-
-    /* Add a black background color to the top navigation */
-    .topnav {
-      position: relative;
-      overflow: hidden;
-      background: linear-gradient(to left, rgb(28, 27, 27) 0%, black 50%, rgb(28, 27, 27) 100%);
-      background-size: 200% 100%;
-      background-position: left center;
-      transition: background 1s linear;
-    }
-
-    .topnav:hover {
-      background-position: 100% center;
-    }
-
-    /* Style the links inside the navigation bar */
-    .topnav a {
-      float: left;
-      color: #f2f2f2;
-      text-align: center;
-      padding: 14px 16px;
-      text-decoration: none;
-      font-size: 17px;
-    }
-
-    /* Change the color of links on hover */
-    .topnav a:hover {
-      /* background-color: black; */
-      color: white;
-    }
-
-    /* Add a color to the active/current link */
-    .topnav a.active {
-      /* background-color: black;     */
-      color: white;
-    }
-
-    /* Centered section inside the top navigation */
-    .topnav-centered a {
-      float: none;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-
-    /* Right-aligned section inside the top navigation */
-    .topnav-right {
-      float: right;
-    }
-
-    /* Responsive navigation menu - display links on top of each other instead of next to each other (for mobile devices) */
-    @media screen and (max-width: 600px) {
-
-      .topnav a,
-      .topnav-right {
-        float: none;
-        display: block;
-      }
-
-      .topnav-centered a {
-        position: relative;
-        top: 0;
-        left: 0;
-        transform: none;
-      }
-    }
-
-    .anton-regular {
-      font-family: "Anton", sans-serif;
-      font-weight: 400;
-      font-style: normal;
-      font-size: 20px;
-    }
-
-    .s {
-      padding-left: 100px;
-    }
-
-    .b {
-      /*background-color: rgb(107, 91, 149);*/
-      background-color: rgb(107, 88, 118)
-    }
-
-    .barlow-condensed-medium-italic {
-      font-family: "Barlow Condensed", sans-serif;
-      font-weight: 500;
-      font-style: italic;
-      color: rgb(255, 111, 97);
-    }
-
-    .jersey-15-charted-regular {
-      font-family: "Jersey 15 Charted", sans-serif;
-      font-weight: 400;
-      font-style: normal;
-    }
-
-    .sedan-regular {
-      font-family: "Sedan", serif;
-      font-weight: 400;
-      font-style: normal;
-    }
-
-    .sedan-regular-italic {
-      font-family: "Sedan", serif;
-      font-weight: 400;
-      font-style: italic;
-      color: red;
-    }
-
-      /* .card-body {
+    .card {
+        border: none;
         /* Remove border */
-        background-color: #000;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        background-color: black;
         /* Pure black background */
         padding: 20px;
-      } */
-
-    .navbar {
-      height: 80px;
-    }
-
-    .card {
-      border: none;
-      /* Remove border */
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-      background-color: black;
-      /* Pure black background */
-      padding: 20px;
     }
 
     /* Adjust the text color inside the card */
@@ -155,9 +32,9 @@
     .card-title,
     .form-control,
     label {
-      color: #ffffff;
-      font-size: 14px;
-      /* White text color */
+        color: #ffffff;
+        font-size: 14px;
+        /* White text color */
     }
   </style>
 

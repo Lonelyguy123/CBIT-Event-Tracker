@@ -1,0 +1,307 @@
+    .poppins-bold {
+        font-family: "Poppins", sans-serif;
+        font-weight: 700;
+        font-style: normal;
+    }
+
+    /* Add a black background color to the top navigation */
+    .topnav {
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(to left, rgb(28, 27, 27) 0%, black 50%, rgb(28, 27, 27) 100%);
+        background-size: 200% 100%;
+        background-position: left center;
+        transition: background 1s linear;
+    }
+
+    .topnav:hover {
+        background-position: 100% center;
+    }
+
+    /* Style the links inside the navigation bar */
+    .topnav a {
+        float: left;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+    }
+
+    /* Change the color of links on hover */
+    .topnav a:hover {
+        /* background-color: black; */
+        color: white;
+    }
+
+    /* Add a color to the active/current link */
+    .topnav a.active {
+        /* background-color: black;     */
+        color: white;
+    }
+
+    /* Centered section inside the top navigation */
+    .topnav-centered a {
+        float: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    /* Right-aligned section inside the top navigation */
+    .topnav-right {
+        float: right;
+    }
+
+    /* Responsive navigation menu - display links on top of each other instead of next to each other (for mobile devices) */
+    @media screen and (max-width: 600px) {
+
+        .topnav a,
+        .topnav-right {
+            float: none;
+            display: block;
+        }
+
+        .topnav-centered a {
+            position: relative;
+            top: 0;
+            left: 0;
+            transform: none;
+        }
+    }
+
+    .anton-regular {
+        font-family: "Anton", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 20px;
+    }
+
+    .s {
+        padding-left: 100px;
+    }
+
+    .b {
+        /*background-color: rgb(107, 91, 149);*/
+        background-color: rgb(107, 88, 118)
+    }
+
+    
+
+
+
+    
+
+
+    /*  */
+
+    h2 {
+        color: #ffffff;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    label {
+        color: #ffffff;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+        border-color: #0056b3;
+    }
+
+    .login-link {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .login-link a {
+        color: #ffffff;
+        text-decoration: none;
+    }
+
+    .login-link a:hover {
+        text-decoration: underline;
+    }
+
+
+
+    #scroller {
+        width: 100%;
+        /* Full width */
+        border-radius: 0;
+        /* Remove border radius */
+        margin: 0;
+    }
+
+    .carousel-caption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 10px;
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+    }
+
+    .carousel-item {
+        height: 50vh;
+        /* Full viewport height */
+        background-size: cover;
+        background-position: center;
+        padding: 0;
+    }
+
+    .carousel-caption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 10px;
+        background: rgba(0, 0, 0, 0.5);
+        /* Semi-transparent background */
+        color: white;
+        /* Text color */
+    }
+
+
+    .carousel-control-prev,
+    .carousel-control-next {
+        width: auto;
+        padding: 0 15px;
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    /* Custom CSS to change carousel control color to black */
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        background-color: black;
+        /* Change control background color */
+        color: black !important;
+        /* Change icon color */
+    }
+
+    .carousel-item img {
+        max-height: 300px;
+        /* Reduce the image size in the carousel */
+    }
+
+    /* Add a black background color to the top navigation */
+
+
+
+    .kanit-regular {
+        font-family: "Kanit", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+    }
+
+    .abel-regular {
+        font-family: "Abel", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 20px;
+    }
+
+    .anton-regular {
+        font-family: "Anton", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 20px;
+    }
+
+    .merriweather-light {
+        font-family: "Merriweather", serif;
+        font-weight: 300;
+        font-style: normal;
+    }
+
+    .bg-image {
+        background: url('bg.avif') no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+
+    .gradient-text {
+        background: -webkit-linear-gradient(#ee7752, #e73c7e, #23a6d5, #23d5ab);
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        transition: all 2s;
+    }
+
+
+    .fade-in {
+        opacity: 0;
+        animation: fadeIn ease 3s;
+        -webkit-animation: fadeIn ease 3s;
+        -moz-animation: fadeIn ease 3s;
+        animation-fill-mode: forwards;
+        -webkit-animation-fill-mode: forwards;
+        -moz-animation-fill-mode: forwards;
+    }
+
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @-moz-keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @-webkit-keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    body {
+        background-color: #000000;
+        color: #ffffff;
+    }
+
+
+    .signup-link {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .signup-link a {
+        color: #ffffff;
+        text-decoration: none;
+    }
+
+    .signup-link a:hover {
+        text-decoration: underline;
+    }
+
+    
