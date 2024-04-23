@@ -69,11 +69,46 @@
             color: #ffffff;
             /* White text color */
         }
-
     </style>
 </head>
 
 <body>
+    <script>
+        // JavaScript for form validation
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelector('form').addEventListener('submit', function (event) {
+                // Prevent the default form submission
+                event.preventDefault();
+                // Validate the form fields
+                if (validateForm()) {
+                    // If the form is valid, submit it
+                    this.submit();
+                    alert('Form has been submitted!');
+                }
+            });
+        });
+
+        function validateForm() {
+            // Basic validation example
+            var eventType = document.getElementById('eventType').value;
+            var eventDate = document.getElementById('Event_Date').value;
+            var fromTime = document.getElementById('from_time').value;
+            var toTime = document.getElementById('to_time').value;
+            var venue = document.getElementById('Venue_for_Event').value;
+            var audienceCount = document.getElementById('audience_count').value;
+
+            // Check if any field is empty
+            if (!eventType || !eventDate || !fromTime || !toTime || !venue || !audienceCount) {
+                alert('All fields are required!');
+                return false;
+            }
+
+            // You can add more specific validations here if needed
+            
+            return true;
+        }
+    </script>
+
     <div class="topnav">
 
         <!-- Centered link -->
