@@ -88,7 +88,36 @@
     }
 
 
-
+    .navbar-logo {
+        display: block;
+        width: 120px; /* Adjust the width as needed */
+        height: auto;
+        margin: 0 auto; /* Center the image horizontally */
+    }
+    
+    .topnav {
+        overflow: hidden;
+        background-color: #333; /* Navbar background color */
+        height: 60px; /* Adjust the navbar height as needed */
+    }
+    
+    .topnav-centered {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%; /* Vertically center the image */
+    }
+    
+    .navbar-logo {
+        max-height: 100%; /* Make the image height maximum to the navbar height */
+        width: auto;
+        max-width: 250px; /* Set the maximum width to 250px */
+    }
+    
+    .navbar-logo:hover {
+        opacity: 0.8; /* Reduce opacity on hover */
+    }
+    
 
 
 
