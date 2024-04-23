@@ -7,7 +7,7 @@
     <title>CBIT Event-Tracker</title>
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="./styles.css"> 
+    <link rel="stylesheet" href="./styles.css">
     <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jersey+15+Charted&family=Sedan&display=swap" rel="stylesheet"> -->
@@ -19,9 +19,20 @@
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
 
+    <style>
+       
+
+
+        /* Smaller cards */
+        .card {
+            max-width: 450px;
+            /* Adjust as needed */
+        }
+    </style>
+
 </head>
 
-<body>
+<body style="background-color: black;">
 
     <div class="topnav">
 
@@ -45,11 +56,12 @@
     <div class="container-fluid py-5 bg-black">
         <div class="row">
             <div class="col-3">
-                <img src="cbit.jpg" alt="Your Image" class="img-fluid fade-in rounded" style="height: 40vh; object-fit: cover;">
+                <img src="cbit.jpg" alt="Your Image" class="img-fluid fade-in rounded"
+                    style="height: 40vh; object-fit: cover;">
             </div>
             <div class="col-9 d-flex align-items-center">
-                <div class="p-3 fade-in bg-dark" >
-                    <p  style="font-size: 24px; line-height: 1.7; color:white;">
+                <div class="p-3 fade-in bg-dark">
+                    <p style="font-size: 24px; line-height: 1.7; color:white;">
                         Welcome to the vibrant world of CSE events at CBIT! Explore our dynamic lineup of workshops,
                         bootcamps, hackathons, and more, designed to ignite your passion for technology and innovation.
                         Stay tuned for upcoming events that offer unparalleled learning experiences and networking
@@ -59,42 +71,81 @@
             </div>
         </div>
     </div>
+    <hr style="margin-bottom: 50px;margin-left: 175px;margin-right: 175px; background-color: white;border: solid white;">
+
+    <div id="carouselContent" class="carousel slide" data-ride="carousel" style="background-color: black;">
+        <div class="carousel-inner" role="listbox">
+            <div class="carousel-item active text-center p-4" id="scrollcontent"
+                style="background-image: url('doomguy.jpg');">
+                <div class="carousel-caption">
+                    <h3 class="kanit-regular">Doom</h3>
+                    <p class="abel-regular">Rip and Tear</p>
+                </div>
+            </div>
+            <div class="carousel-item text-center p-4" id="scrollcontent" style="background-image: url('devops.png');">
+                <div class="carousel-caption">
+                    <h3 class="kanit-regular">DevOps</h3>
+                    <p class="abel-regular">Developer Operations</p>
+                </div>
+            </div>
+            <div class="carousel-item text-center p-4" id="scrollcontent"
+                style="background-image: url('banner_img.jpg');">
+                <div class="carousel-caption">
+                    <h3 class="kanit-regular">Home</h3>
+                    <p class="abel-regular">Home Sweet Home</p>
+                </div>
+            </div>
+        </div>
+        <!-- Carousel controls -->
+        <a class="carousel-control-prev" href="#carouselContent" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon text-dark" aria-hidden="true" id="control1"></span>
+            <span class="sr-only"></span>
+        </a>
+        <a class="carousel-control-next" href="#carouselContent" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true" id="control1"></span>
+            <span class="sr-only"> </span>
+        </a>
     </div>
-    <div class="container-fluid" id="scroller">
-        <div id="carouselContent" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner" role="listbox">
-                <div class="carousel-item active text-center p-4" id="scrollcontent"
-                    style="background-image: url('doomguy.jpg');">
-                    <div class="carousel-caption">
-                        <h3 class="kanit-regular">Image 1</h3>
-                        <p class="abel-regular">Toastmasters team with the volunteers</p>
-                    </div>
-                </div>
-                <div class="carousel-item text-center p-4" id="scrollcontent"
-                    style="background-image: url('devops.png');">
-                    <div class="carousel-caption">
-                        <h3 class="kanit-regular">Image 2</h3>
-                        <p class="abel-regular">The Ec with jc's</p>
-                    </div>
-                </div>
-                <div class="carousel-item text-center p-4" id="scrollcontent"
-                    style="background-image: url('banner_img.jpg');">
-                    <div class="carousel-caption">
-                        <h3 class="kanit-regular">Image 3</h3>
-                        <p class="abel-regular">A jc hosting the game</p>
+    </div>
+
+    <hr style="margin-top: 50px; margin-bottom: 0px;margin-left: 175px;margin-right: 175px; background-color: white;border: solid white;">
+
+    <div class="container-fluid py-5" style="background-color: black;">
+        <h2 class="text-center mb-4" style="color: white;">Featured Events</h2>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col">
+                <div class="card h-100">
+                    <img src="./pricesmart1.jpg" class="card-img-top" alt="Event 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Event 1</h5>
+                        <p class="card-text">Toastmasters team with the volunteers</p>
                     </div>
                 </div>
             </div>
-            <!-- Carousel controls -->
-            <a class="carousel-control-prev" href="#carouselContent" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon text-dark" aria-hidden="true" id="control1"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselContent" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true" id="control1"></span>
-                <span class="sr-only">Next</span>
-            </a>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="./pricesmart2.jpg" class="card-img-top" alt="Event 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Event 2</h5>
+                        <p class="card-text">The Ec with jc's</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="./pricesmart3.jpg" class="card-img-top" alt="Event 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Event 3</h5>
+                        <p class="card-text">A jc hosting the game</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Add more cards as needed -->
         </div>
+    </div>
+
+    <div class="container-fluid" id="footer-text" style="background-color: black; color: white;">
+        <p class="mb-0">CBIT Event-Tracker &copy; 2024</p>
     </div>
 
     <!-- Optional JavaScript -->

@@ -87,11 +87,11 @@
         background-color: rgb(107, 88, 118)
     }
 
-    
 
 
 
-    
+
+
 
 
     /*  */
@@ -134,14 +134,17 @@
 
 
 
-    #scroller {
-        width: 100%;
-        /* Full width */
-        border-radius: 0;
-        /* Remove border radius */
-        margin: 0;
+    /* #scroller {
+        width: 90%;
+    border-radius: 0;
+    margin: 0;
+    background-color: BLACK;
+    justify-content: center;
     }
-
+    
+    */
+    
+    
     .carousel-caption {
         position: absolute;
         bottom: 0;
@@ -152,13 +155,21 @@
         color: white;
     }
 
+
+
     .carousel-item {
         height: 50vh;
         /* Full viewport height */
         background-size: cover;
         background-position: center;
         padding: 0;
+        transition: opacity 0.5s ease;
+        /* Smooth transition for opacity */
     }
+
+    
+
+
 
     .carousel-caption {
         position: absolute;
@@ -170,7 +181,11 @@
         /* Semi-transparent background */
         color: white;
         /* Text color */
+        transition: opacity 0.5s ease;
+        /* Smooth transition for opacity */
     }
+
+
 
 
     .carousel-control-prev,
@@ -304,4 +319,9 @@
         text-decoration: underline;
     }
 
-    
+
+
+    #footer-text {
+        color: #ffffff;
+        text-align: center;
+    }
