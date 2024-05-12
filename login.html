@@ -40,7 +40,7 @@
 
     <div class="container">
         <h2>Login</h2>
-        <form id="loginForm" onsubmit="return validateForm()">
+        <form id="loginForm">
             <div class="form-group">
                 <label for="email">Email address or Username</label>
                 <input type="text" class="form-control" id="email" placeholder="Enter email or username" required>
@@ -52,6 +52,7 @@
             <br>
             <button type="submit" class="btn btn-outline-primary" style="margin-left: 127px;">Login</button>
         </form>
+        <div id="message" style="display: none;"></div> <!-- Added this line -->
         <div class="signup-link">
             <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
         </div>
@@ -107,8 +108,47 @@
     
             return true; // Form is valid
         }
+
+        // Function to handle form submission
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form from submitting normally
+
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+
+            // Validate form data
+            if (!validateForm()) {
+                return;
+            }
+
+            // Send data to server
+            fetch('/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ username: email, password: password }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                var messageElement = document.getElementById('message');
+                if (data.success) {
+                    // Show a success message
+                    messageElement.style.display = 'block';
+                    messageElement.style.color = 'green';
+                    messageElement.textContent = 'Login successful!';
+                } else {
+                    // Show an error message
+                    messageElement.style.display = 'block';
+                    messageElement.style.color = 'red';
+                    messageElement.textContent = 'Username or password is wrong. Please try again.';
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        });
     </script>
-    
 </body>
 
 </html>
