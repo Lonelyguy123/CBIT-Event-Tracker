@@ -78,6 +78,8 @@
 </head>
 
 <body>
+    
+
     <div class="topnav">
 
         <!-- Centered link -->
@@ -267,6 +269,20 @@
 
             return isValid;
         }
+        if(localStorage.getItem('userEmail')) {
+            // Get the email from local storage
+            var email = localStorage.getItem('userEmail');
+    
+            // Get the div where we want to display the message
+            var userEmailDisplay = document.getElementById('user-email-display');
+    
+            // Create the message
+            var message = 'Signed in as ' + email;
+    
+            // Display the message
+            userEmailDisplay.textContent = message;
+        }
+       
     </script>
 </body>
 

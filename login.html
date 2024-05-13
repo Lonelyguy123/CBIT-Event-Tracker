@@ -111,43 +111,47 @@
 
         // Function to handle form submission
         document.getElementById('loginForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent form from submitting normally
+    event.preventDefault(); // Prevent form from submitting normally
 
-            var email = document.getElementById('email').value;
-            var password = document.getElementById('password').value;
+    var email = document.getElementById('email').value;
+    var password = document.getElementById('password').value;
 
-            // Validate form data
-            if (!validateForm()) {
-                return;
-            }
+    // Validate form data
+    if (!validateForm()) {
+        return;
+    }
 
-            // Send data to server
-            fetch('/login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ username: email, password: password }),
-            })
-            .then(response => response.json())
-            .then(data => {
-                var messageElement = document.getElementById('message');
-                if (data.success) {
-                    // Show a success message
-                    messageElement.style.display = 'block';
-                    messageElement.style.color = 'green';
-                    messageElement.textContent = 'Login successful!';
-                } else {
-                    // Show an error message
-                    messageElement.style.display = 'block';
-                    messageElement.style.color = 'red';
-                    messageElement.textContent = 'Username or password is wrong. Please try again.';
-                }
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-            });
-        });
+    // Send data to server
+    fetch('/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username: email, password: password }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        var messageElement = document.getElementById('message');
+        if (data.success) {
+            // Show a success message
+            messageElement.style.display = 'block';
+            messageElement.style.color = 'green';
+            messageElement.textContent = 'Login successful!';
+            // Store email in local storage
+            localStorage.setItem('userEmail', email);
+            // Redirect to index.html
+            window.location.href = './index.html';
+        } else {
+            // Show an error message
+            messageElement.style.display = 'block';
+            messageElement.style.color = 'red';
+            messageElement.textContent = 'Username or password is wrong. Please try again.';
+        }
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+});
     </script>
 </body>
 
