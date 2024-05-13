@@ -10,15 +10,28 @@ app.use(bodyParser.json());
 // Serve static files from the current directory
 app.use(express.static(path.join(__dirname)));
 
-mongoose.connect('mongodb://localhost:27017/Backend', );
+mongoose.connect('mongodb://localhost:27017/h_backshot', );
 // Define user schema and model
 const userSchema = new mongoose.Schema({
     username: String,
     passwordHash: String,
 });
 
+const reportSchema = new mongoose.Schema({
+    event_type: String,
+    date_of_event: String,
+    aud_count: Number,
+    from_time: String,
+    to_time: String,
+    venue: String
+});
+
+const Report = mongoose.model('Report', reportSchema);
+
 const User = mongoose.model('User', userSchema);
 
+
+// signup endpoint
 app.post('/register', async (req, res) => {
     const { username, password } = req.body;
 
@@ -58,6 +71,21 @@ app.post('/login', async (req, res) => {
 
     // User is authenticated
     res.status(200).json({ success: true, message: 'User authenticated successfully' });
+});
+
+//event report endpoint
+app.post('/report', async(req, res) => {
+    const{event_type, date_of_event, aud_count, from_time, to_time, venue} = req.body;
+
+    const report = new Report({event_type, date_of_event, aud_count, from_time, to_time, venue});
+    
+    try {
+        await report.save();
+        res.status(201).json({ success: true, message: 'Event reported successfully' });
+    } catch (err) {
+        console.error('Error saving report:', err);
+        res.status(500).json({ success: false, message: 'Error reporting event' });
+    }
 });
 
 app.listen(3000, () => {

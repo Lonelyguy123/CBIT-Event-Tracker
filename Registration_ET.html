@@ -82,7 +82,8 @@
 
         <!-- Centered link -->
         <div class="topnav-centered">
-            <a href="./index.html" class="active poppins-bold" style="font-size:25px;"><img src="./logo_for_wb_better.png" style="width: 40px;"> Event Tracker</a>
+            <a href="./index.html" class="active poppins-bold" style="font-size:25px;"><img
+                    src="./logo_for_wb_better.png" style="width: 40px;"> Event Tracker</a>
         </div>
 
         <!-- Left-aligned links (default) -->
@@ -96,15 +97,15 @@
         </div>
 
     </div>
-    
+
     <div class="container mt-5">
         <div class="card">
             <h1 class="mb-4" style="color: white;">Event Report Form</h1>
             <form id="eventReportForm" action="">
                 <div class="row">
                     <div class="col-md-6">
-                        <label for="eventType">Event Type:</label>
-                        <select class="form-control" id="eventType">
+                        <label for="event_type">Event Type:</label>
+                        <select class="form-control" id="event_type">
                             <option value="none" selected disabled hidden>Select an Option</option>
                             <option value="">BootCamp</option>
                             <option value="workshop">Workshop</option>
@@ -149,6 +150,7 @@
                             style="height: 40px; width: 80px; font-size: 14px;">Submit</button>
                     </div>
                 </div>
+                <div id="message" class="alert" role="alert" style="display: none;"></div>
             </form>
         </div>
     </div>
@@ -173,12 +175,49 @@
                     this.submit();
                     alert('Form has been submitted!');
                 }
+
+                // Prepare data to send to server
+                const data = {
+                    event_type: document.getElementById('event_type').value,
+                    date_of_event: document.getElementById('Event_Date').value,
+                    from_time: document.getElementById('from_time').value,
+                    to_time: document.getElementById('to_time').value,
+                    venue: document.getElementById('Venue_for_Event').value,
+                    aud_count: document.getElementById('audience_count').value
+                };
+
+                // Send data to server
+                fetch('/report', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        var messageElement = document.getElementById('message');
+                        if (data.success) {
+                            // Show a success message
+                            messageElement.style.display = 'block';
+                            messageElement.style.color = 'green';
+                            messageElement.textContent = 'Registration successful!';
+                        } else {
+                            // Show an error message
+                            messageElement.style.display = 'block';
+                            messageElement.style.color = 'red';
+                            messageElement.textContent = 'Registration failed. Please try again.';
+                        }
+                    })
+                    .catch((error) => {
+                        console.error('Error:', error);
+                    });
             });
         });
 
         function validateForm() {
             // Basic validation example
-            var eventType = document.getElementById('eventType').value;
+            var eventt_type = document.getElementById('event_type').value;
             var eventDate = document.getElementById('Event_Date').value;
             var fromTime = document.getElementById('from_time').value;
             var toTime = document.getElementById('to_time').value;
@@ -193,7 +232,7 @@
             });
 
             // Check if any field is empty
-            if (!eventType) {
+            if (!event_type) {
                 document.getElementById('eventTypeError').textContent = 'Event Type is required.';
                 isValid = false;
             }
