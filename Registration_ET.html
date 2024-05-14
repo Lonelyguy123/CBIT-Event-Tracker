@@ -121,15 +121,15 @@
         </div>
 
         <!-- Left-aligned links (default) -->
-        <a href="./Registration_ET.html">Registration</a>
-        <a href="./eventhistory.html">Past Events</a>
+        <a href="./Registration_ET.html" id="registrationLink" style="display: none;">Registration</a>
+        <a href="./eventhistory.html" id="pastEventsLink" style="display: none;">Past Events</a>
 
         <!-- Right-aligned links -->
         <div class="topnav-right">
-            <a href="./login.html">Log In</a>
-            <a href="./signup.html">Sign Up</a>
+            <a href="./login.html" id="loginLink" style="display: block;">Log In</a>
+            <a href="./signup.html" id="signupLink" style="display: block;">Sign Up</a>
             <button id="user-email-display" class="btn btn-link ml-3 text-white align-middle text-decoration-none"
-                style="font-size:14px;" data-toggle="modal" data-target="#logoutModal"></button>
+                data-toggle="modal" data-target="#logoutModal" style="padding-top: 12px;"></button>
         </div>
 
     </div>
@@ -251,7 +251,7 @@
                             messageElement.textContent = 'Registration successful!';
                             message_alert = 'Registration successful!';
                             window.location.reload();
-                            
+
                         } else {
                             // Show an error message
                             messageElement.style.display = 'block';
@@ -259,7 +259,7 @@
                             messageElement.textContent = 'Registration failed. Please try again.';
                             message = 'Registration failed. Please try again.';
                         }
-                        
+
                     })
                     .catch((error) => {
                         console.error('Error:', error);
@@ -340,6 +340,16 @@
 
             // Display the message
             userEmailDisplay.textContent = message;
+
+            document.getElementById('registrationLink').style.display = 'block';
+            document.getElementById('pastEventsLink').style.display = 'block';
+            userEmailDisplay.style.display = 'block'; // Show the logged-in user's email
+
+
+            // Hide the login and sign up links
+            document.getElementById('loginLink').style.display = 'none';
+            document.getElementById('signupLink').style.display = 'none';
+
         }
         function logout() {
             // Remove the email from local storage
