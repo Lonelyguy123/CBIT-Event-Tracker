@@ -242,24 +242,20 @@
                 })
                     .then(response => response.json())
                     .then(data => {
-                        var message_alert = '';
                         var messageElement = document.getElementById('message');
                         if (data.success) {
-                            // Show a success message
                             messageElement.style.display = 'block';
                             messageElement.style.color = 'green';
                             messageElement.textContent = 'Registration successful!';
-                            message_alert = 'Registration successful!';
-                            window.location.reload();
-
+                            window.alert('Registration successful!');
                         } else {
-                            // Show an error message
                             messageElement.style.display = 'block';
                             messageElement.style.color = 'red';
                             messageElement.textContent = 'Registration failed. Please try again.';
-                            message = 'Registration failed. Please try again.';
+                            window.alert('Registration failed.');
                         }
-
+                        // Reload the page after showing the alert
+                        window.location.reload();
                     })
                     .catch((error) => {
                         console.error('Error:', error);
