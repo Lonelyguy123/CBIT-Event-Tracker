@@ -80,8 +80,8 @@
         </div>
 
         <!-- Left-aligned links (default) -->
-        <a href="./Registration_ET.html">Registration</a>
-        <a href="./eventhistory.html">Past Events</a>
+        <a href="./Registration_ET.html" id="registrationLink" style="display: none;">Registration</a>
+        <a href="./eventhistory.html" id="pastEventsLink" style="display: none;">Past Events</a>
 
         <!-- Right-aligned links -->
         <div class="topnav-right">
@@ -199,26 +199,32 @@
     <script type="text/javascript" src="node_modules/mdbootstrap/js/mdb.min.js"></script>
     <script>
         // Check if the user is logged in
-        if(localStorage.getItem('userEmail')) {
+        if (localStorage.getItem('userEmail')) {
             // Get the email from local storage
             var email = localStorage.getItem('userEmail');
-    
+
             // Get the div where we want to display the message
             var userEmailDisplay = document.getElementById('user-email-display');
-    
+
             // Create the message
             var message = 'Signed in as ' + email;
-    
+
             // Display the message
             userEmailDisplay.textContent = message;
-        }
-        function logout() {
-    // Remove the email from local storage
-    localStorage.removeItem('userEmail');
 
-    // Redirect to the login page
-    window.location.href = './login.html';
-}
+            // Hide the login and sign up links
+            document.getElementById('loginLink').style.display = 'none';
+            document.getElementById('signupLink').style.display = 'none';
+
+        }
+
+        function logout() {
+            // Remove the email from local storage
+            localStorage.removeItem('userEmail');
+
+            // Redirect to the login page
+            window.location.href = './login.html';
+        }
     </script>
 </body>
 
