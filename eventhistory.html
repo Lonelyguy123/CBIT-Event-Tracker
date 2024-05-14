@@ -47,6 +47,12 @@
       font-size: 14px;
       /* White text color */
     }
+
+    /* Adjust text color for table content */
+    .table th,
+    .table td {
+      color: #ffffff;
+    }
   </style>
 
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
@@ -84,7 +90,7 @@
 
     <!-- Left-aligned links (default) -->
     <a href="./Registration_ET.html" id="registrationLink" style="display: none;">Registration</a>
-        <a href="./eventhistory.html" id="pastEventsLink" style="display: none;">Past Events</a>
+    <a href="./eventhistory.html" id="pastEventsLink" style="display: none;">Past Events</a>
 
     <!-- Right-aligned links -->
     <div class="topnav-right">
@@ -130,7 +136,7 @@
       </div>
       <div class="table-responsive">
         <table class="table table-striped table-hover">
-          <caption>These are the filtered list of events</caption>
+          
           <thead class="thead-dark">
             <tr>
               <th>#</th>
@@ -140,23 +146,10 @@
               <th>View Form</th>
             </tr>
           </thead>
-          <tbody>
-            <tr class="table-primary">
-              <td>1</td>
-              <td>Event 1</td>
-              <td>Workshop</td>
-              <td>2023-01-15</td>
-              <td><button type="button" class="btn btn-success">View</button></td>
-            </tr>
-            <tr class="table-danger">
-              <td>2</td>
-              <td>Event 2</td>
-              <td>Conference</td>
-              <td>2022-08-20</td>
-              <td><button type="button" class="btn btn-success">View</button></td>
-            </tr>
-            <!-- Add more rows as needed -->
+          <tbody id="pastEventsTableBody">
+            <!-- Past events will be dynamically added here -->
           </tbody>
+
         </table>
       </div>
 
@@ -200,6 +193,74 @@
       // Redirect to the login page
       window.location.href = './login.html';
     }
+  </script>
+
+  <script>
+    // Fetch past events and display them
+    function fetchPastEvents() {
+      // Send a GET request to the '/pastEvents' endpoint on the server
+      fetch('/pastEvents')
+        .then(response => response.json()) // Parse the response as JSON
+        .then(pastEvents => { // Handle the JSON data containing past events
+          // Get a reference to the table body where past events will be displayed
+          const pastEventsTableBody = document.getElementById('pastEventsTableBody');
+          pastEventsTableBody.innerHTML = ''; // Clear previous content
+          pastEvents.reverse(); // Reverse the order of past events so that the most recent event is displayed first
+          // Loop through each past event retrieved from the server
+          pastEvents.forEach((event, index) => {
+            // Create a new table row  for each past event
+            const tr = document.createElement('tr');
+            // Set the HTML content of the table row with event details and view button
+            tr.innerHTML = `
+                <td>${index + 1}</td>
+                <td>${event.event_name}</td>
+                <td>${event.event_type}</td>
+                <td>${event.date_of_event}</td>
+                <td><button class="btn btn-outline-light btn-sm" disabled>View</button></td>
+            `;
+            // Append the table row to the table body
+            pastEventsTableBody.appendChild(tr);
+          });
+        })
+        .catch(error => console.error('Error fetching past events:', error)); // Handle any errors that occur during the fetch
+    }
+
+    // Call fetchPastEvents function when the page loads
+    document.addEventListener('DOMContentLoaded', fetchPastEvents);
+
+
+    // Construct query parameters based on selected filter options
+    const eventType = document.getElementById('eventType').value;
+    const eventYear = document.getElementById('eventYear').value;
+    const queryParams = {};
+    if (eventType !== 'All') {
+      queryParams.event_type = eventType;
+    }
+    if (eventYear !== 'All') {
+      queryParams.date_of_event = { $regex: `^${eventYear}` }; // Assuming date_of_event is stored as a string in the format 'YYYY-MM-DD'
+    }
+
+    // Pass queryParams as query string when making the fetch request
+    fetch(`/pastEvents?${new URLSearchParams(queryParams)}`)
+      .then(response => response.json())
+      .then(pastEvents => {
+        const pastEventsTableBody = document.getElementById('pastEventsTableBody');
+        pastEventsTableBody.innerHTML = ''; // Clear previous content
+
+        pastEvents.forEach((event, index) => {
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td>${index + 1}</td>
+            <td>${event.event_name}</td>
+            <td>${event.event_type}</td>
+            <td>${event.date_of_event}</td>
+            <td><button class="btn btn-outline-light btn-sm" disabled>View</button></td>
+        `;
+          pastEventsTableBody.appendChild(tr);
+        });
+      })
+      .catch(error => console.error('Error fetching past events:', error));
+
   </script>
 </body>
 

@@ -15,7 +15,7 @@ mongoose.connect('mongodb://localhost:27017/Backend', );
 const userSchema = new mongoose.Schema({
     username: String,
     passwordHash: String,
-});
+}, { collection: 'users' });
 
 const reportSchema = new mongoose.Schema({
     event_name: String,
@@ -25,7 +25,7 @@ const reportSchema = new mongoose.Schema({
     from_time: String,
     to_time: String,
     venue: String
-});
+}, {colllection: 'reports'});
 
 const Report = mongoose.model('Report', reportSchema);
 
@@ -88,6 +88,20 @@ app.post('/report', async(req, res) => {
         res.status(500).json({ success: false, message: 'Error reporting event' });
     }
 });
+
+//end point to get all reports
+// GET request handler for fetching past events
+app.get('/pastEvents', async (req, res) => {
+    try {
+        // Retrieve past events from the database
+        const pastEvents = await Report.find(req.query); // Apply any filters from query parameters
+        res.status(200).json(pastEvents);
+    } catch (err) {
+        console.error('Error fetching past events:', err);
+        res.status(500).json({ success: false, message: 'Error fetching past events' });
+    }
+});
+
 
 app.listen(3000, () => {
     console.log('Server is running on port 3000');
