@@ -140,15 +140,9 @@
             <form id="eventReportForm" action="">
                 <div class="row">
                     <div class="col-md-6">
-                        <label for="event_type">Event Type:</label>
-                        <select class="form-control" id="event_type">
-                            <option value="none" selected disabled hidden>Select an Option</option>
-                            <option value="">BootCamp</option>
-                            <option value="workshop">Workshop</option>
-                            <option value="conference">Conference</option>
-                            <option value="seminar">Seminar</option>
-                        </select>
-                        <div id="eventTypeError" class="error-message"></div>
+                        <label for="event_name">Event Name:</label>
+                        <input type="text" class="form-control" name="event_name" id="event_name">
+                        <div id="eventNameError" class="error-message"></div>
                         <br>
                         <label for="Event_Date">Select Date of Event</label>
                         <input type="date" class="form-control" name="Event_Date" id="Event_Date">
@@ -159,13 +153,28 @@
                         <div id="audienceCountError" class="error-message"></div>
                     </div>
                     <div class="col-md-6">
-                        <label for="from_time">From</label>
-                        <input type="time" class="form-control" name="from_time" id="from_time">
-                        <div id="fromTimeError" class="error-message"></div>
-                        <br>
-                        <label for="to_time">To</label>
-                        <input type="time" class="form-control" name="to_time" id="to_time">
-                        <div id="toTimeError" class="error-message"></div>
+                        <div class="row">
+                            <label for="event_type">Event Type:</label>
+                            <select class="form-control" id="event_type">
+                                <option value="none" selected disabled hidden>Select an Option</option>
+                                <option value="">BootCamp</option>
+                                <option value="workshop">Workshop</option>
+                                <option value="conference">Conference</option>
+                                <option value="seminar">Seminar</option>
+                            </select>
+                            <div id="eventTypeError" class="error-message"></div>
+                            <br>
+                            <div class="col-md-6"><label for="from_time">From</label>
+                                <input type="time" class="form-control" name="from_time" id="from_time">
+                                <div id="fromTimeError" class="error-message"></div>
+                            </div>
+                            <div class="col-md-6"><label for="to_time">To</label>
+                                <input type="time" class="form-control" name="to_time" id="to_time">
+                                <div id="toTimeError" class="error-message"></div>
+                            </div>
+                        </div>
+
+
                         <br>
                         <label for="Venue_for_Event">Select Venue</label>
                         <select name="Venue_for_Event" class="form-control" id="Venue_for_Event">
@@ -205,15 +214,16 @@
             document.getElementById('eventReportForm').addEventListener('submit', function (event) {
                 // Prevent the default form submission
                 event.preventDefault();
+
                 // Validate the form fields
-                if (validateForm()) {
-                    // If the form is valid, submit it
-                    this.submit();
-                    alert('Form has been submitted!');
+                if (!validateForm()) {
+                    // If the form is not valid, stop here
+                    return;
                 }
 
                 // Prepare data to send to server
                 const data = {
+                    event_name: document.getElementById('event_name').value,
                     event_type: document.getElementById('event_type').value,
                     date_of_event: document.getElementById('Event_Date').value,
                     from_time: document.getElementById('from_time').value,
@@ -232,18 +242,24 @@
                 })
                     .then(response => response.json())
                     .then(data => {
+                        var message_alert = '';
                         var messageElement = document.getElementById('message');
                         if (data.success) {
                             // Show a success message
                             messageElement.style.display = 'block';
                             messageElement.style.color = 'green';
                             messageElement.textContent = 'Registration successful!';
+                            message_alert = 'Registration successful!';
+                            window.location.reload();
+                            
                         } else {
                             // Show an error message
                             messageElement.style.display = 'block';
                             messageElement.style.color = 'red';
                             messageElement.textContent = 'Registration failed. Please try again.';
+                            message = 'Registration failed. Please try again.';
                         }
+                        
                     })
                     .catch((error) => {
                         console.error('Error:', error);
@@ -253,6 +269,7 @@
 
         function validateForm() {
             // Basic validation example
+            var eventt_name = document.getElementById('event_name').value;
             var eventt_type = document.getElementById('event_type').value;
             var eventDate = document.getElementById('Event_Date').value;
             var fromTime = document.getElementById('from_time').value;
@@ -268,7 +285,11 @@
             });
 
             // Check if any field is empty
-            if (!event_type) {
+            if (!eventt_name) {
+                document.getElementById('eventNameError').textContent = 'Event Name is required.';
+                isValid = false;
+            }
+            if (!eventt_type) {
                 document.getElementById('eventTypeError').textContent = 'Event Type is required.';
                 isValid = false;
             }

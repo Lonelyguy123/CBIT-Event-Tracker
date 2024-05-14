@@ -18,6 +18,7 @@ const userSchema = new mongoose.Schema({
 });
 
 const reportSchema = new mongoose.Schema({
+    event_name: String,
     event_type: String,
     date_of_event: String,
     aud_count: Number,
@@ -75,9 +76,9 @@ app.post('/login', async (req, res) => {
 
 //event report endpoint
 app.post('/report', async(req, res) => {
-    const{event_type, date_of_event, aud_count, from_time, to_time, venue} = req.body;
+    const{event_name, event_type, date_of_event, aud_count, from_time, to_time, venue} = req.body;
 
-    const report = new Report({event_type, date_of_event, aud_count, from_time, to_time, venue});
+    const report = new Report({event_name, event_type, date_of_event, aud_count, from_time, to_time, venue});
     
     try {
         await report.save();
