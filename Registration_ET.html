@@ -313,12 +313,16 @@
                 document.getElementById('audienceCountError').textContent = 'Audience Count is required.';
                 isValid = false;
             }
+            if (!eventDate) {
+                document.getElementById('eventDateError').textContent = 'Event Date is required.';
+                isValid = false;
+            }
 
             // Validate event date
             var currentDate = new Date();
             var selectedDate = new Date(eventDate);
-            if (selectedDate < currentDate) {
-                document.getElementById('eventDateError').textContent = 'Please select a future date for the event.';
+            if (selectedDate > currentDate) {
+                document.getElementById('eventDateError').textContent = 'Please select a past date for the event.';
                 isValid = false;
             }
 

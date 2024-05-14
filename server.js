@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 // Serve static files from the current directory
 app.use(express.static(path.join(__dirname)));
 
-mongoose.connect('mongodb://localhost:27017/h_backshot', );
+mongoose.connect('mongodb://localhost:27017/Backend', );
 // Define user schema and model
 const userSchema = new mongoose.Schema({
     username: String,
