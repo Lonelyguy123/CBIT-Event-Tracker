@@ -212,6 +212,12 @@
             // Display the message
             userEmailDisplay.textContent = message;
 
+            // Show registration and past events links
+            document.getElementById('registrationLink').style.display = 'block';
+            document.getElementById('pastEventsLink').style.display = 'block';
+            userEmailDisplay.style.display = 'block'; // Show the logged-in user's email
+
+            
             // Hide the login and sign up links
             document.getElementById('loginLink').style.display = 'none';
             document.getElementById('signupLink').style.display = 'none';
